@@ -14,7 +14,8 @@ module.exports.add = function(board, number, letter) {
     if (!cells[board]){
         cells[board] = {};
     }
-    cells[board][number] = letter;
+    // store all letters in the same case
+    cells[board][number] = letter.toLowerCase();
 };
 
 /**

@@ -3,7 +3,8 @@ var app = require('express')(),
     bodyParser = require('body-parser'),
     pattern = require('./lib/pattern'),
     cells = require('./lib/cells'),
-    router = require('./lib/fact_router');
+    router = require('./lib/fact_router'),
+    rabbitmq = require('rabbit.js');
 
 // wait until rabbitmq can accept connections, somehow
 function doConnect(){
@@ -30,7 +31,8 @@ function doConnect(){
         });
 
     } catch (err){
-        logger.error(err);
+        logger.error("caught error trying to connect to rabbitmq" + err);
+        setTimeout(doConnect, 2000);
     }
 }
 
@@ -49,9 +51,10 @@ app.get('/', function (req, res) {
 app.post('/pattern/:board', function(req, res) {
 
     logger.log('info', 'incoming: ' + req.body);
+    // ensure that req.body is an array
 
     // expect json array in the request body with the chars & numbers to use to generate a pattern
-    pattern.generate(req.params[board], req.body, function(err, result) {
+    pattern.generate(req.params['board'], req.body, function(err, result) {
         if (!err){
             logger.log('info', 'Success');
             res.json(result);
