@@ -4,7 +4,7 @@ var cells = require('./cells'),
 /**
  * module to generate patterns
  */
-module.exports.generate = function(board, word) {
+module.exports.generate = function(board, word, cb) {
 
     var pattern = '';
     var seen = {};
@@ -26,7 +26,7 @@ module.exports.generate = function(board, word) {
         }
     });
 
-    return pattern;
+    cb(null, {pattern: pattern});
 };
 
 function createCharPattern(board, word) {
