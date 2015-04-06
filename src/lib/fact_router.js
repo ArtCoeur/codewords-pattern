@@ -1,5 +1,5 @@
 var cells = require('./cells'),
-    logger = require('./lib/logger');
+    logger = require('./logger');
 
 module.exports.handleFact = function(body) {
     var fact = JSON.parse(body);
