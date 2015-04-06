@@ -13,12 +13,12 @@ app.get('/', function (req, res) {
     });
 });
 
-app.post('/pattern', function(req, res) {
+app.post('/pattern/:board', function(req, res) {
 
     logger.log('info', 'incoming: ' + req.body);
 
     // expect json array in the request body with the chars & numbers to use to generate a pattern
-    pattern.generate(req.body, function(err, result) {
+    pattern.generate(req.params[board], req.body, function(err, result) {
         if (!err){
             logger.log('info', 'Success');
             res.json(result);
