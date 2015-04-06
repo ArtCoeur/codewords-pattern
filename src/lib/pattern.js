@@ -7,11 +7,20 @@ var cells = require('./cells'),
 module.exports.generate = function(board, word) {
 
     var pattern = '';
-    _.each(word, function(char){
+    var seen = {};
+    var wild_cards = 1;
+    var missing_char_pattern = createCharPattern(board, word);
+
+    _.each(word, function(char, index){
         // simple way to test if a digit or not
         if (_.isFinite(char)){
             // create a wild card which excludes solved letters
-            pattern += createWildCard(board, word);
+            if (!seen[char]) {
+                pattern += missing_char_pattern;
+            } else {
+                pattern += '\\' + seen[char];
+            }
+            seen[char] = wild_cards++;
         } else {
             pattern += char;
         }
@@ -20,23 +29,21 @@ module.exports.generate = function(board, word) {
     return pattern;
 };
 
-function createWildCard(board, word) {
-    var result = '';
+function createCharPattern(board, word) {
 
     var copied_word = _.clone(word);
 
     // exclude all other solved letters
-    var solved = cells.solved(board);
-    _.each(_.values(solved), function(letter){
+    _.each(_.values(cells.solved(board)), function(letter){
         copied_word.push(letter);
     });
 
     copied_word.sort();
 
-    // don't add the same char more than once
-    var unique = _.uniq(copied_word);
+    var result = '';
 
-    _.each(unique, function(char){
+    // don't add the same char more than once
+    _.each(_.uniq(copied_word), function(char){
         if (!_.isFinite(char)){
             result += char;
         }
@@ -47,6 +54,6 @@ function createWildCard(board, word) {
     } else {
         result = '[^' + result + ']';
     }
-    
-    return result;
+
+    return '(' + result + ')';
 }

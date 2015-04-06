@@ -17,7 +17,7 @@ describe('Pattern', function() {
             var board = 'abcde';
             var word = ['d','e','13','d'];
             var result = pattern.generate(board, word);
-            assert(result == 'de[^de]d', 'Expected de[^de]d, got ' + result);
+            assert(result == 'de([^de])d', 'Expected de([^de])d, got ' + result);
         });
 
         it ('should create a pattern excluding other solved letters in a board', function() {
@@ -25,7 +25,7 @@ describe('Pattern', function() {
             cells.add(board, '10', 'w');
             var word = ['g','o','13','t'];
             var result = pattern.generate(board, word);
-            assert(result == 'go[^gotw]t', 'Expected go[^gotw]t, got ' + result);
+            assert(result == 'go([^gotw])t', 'Expected go([^gotw])t, got ' + result);
             cells.clear();
         });
 
@@ -36,7 +36,7 @@ describe('Pattern', function() {
             cells.add(board, '1', 'e');
             var word = ['2','3','13','11'];
             var result = pattern.generate(board, word);
-            assert(result == '[^efw][^efw][^efw][^efw]', 'Expected [^efw][^efw][^efw][^efw], got ' + result);
+            assert(result == '([^efw])([^efw])([^efw])([^efw])', 'Expected ([^efw])([^efw])([^efw])([^efw]), got ' + result);
             cells.clear();
         });
 
@@ -44,7 +44,7 @@ describe('Pattern', function() {
             var board = 'fbd351ae';
             var word = ['2','3','13','11'];
             var result = pattern.generate(board, word);
-            assert(result == '....', 'Expected ...., got ' + result);
+            assert(result == '(.)(.)(.)(.)', 'Expected (.)(.)(.)(.), got ' + result);
             cells.clear();
         });
 
@@ -52,7 +52,25 @@ describe('Pattern', function() {
             var board = 'fbd351ae';
             var word = ['2','3','3','11'];
             var result = pattern.generate(board, word);
-            assert(result == '.(.)\\1.', 'Expected .(.)\\1., got ' + result);
+            assert(result == '(.)(.)\\2(.)', 'Expected (.)(.)\\2(.), got ' + result);
+            cells.clear();
+        });
+
+        it ('should create a pattern which handles multiple duplicates', function (){
+            var board = 'fbd351ae';
+            var word = ['2','3','3','11','2'];
+            var result = pattern.generate(board, word);
+            assert(result == '(.)(.)\\2\(.)\\1', 'Expected (.)(.)\\2(.)\\1, got ' + result);
+            cells.clear();
+        });
+
+        it ('should create a pattern which combines everything', function (){
+            var board = 'fbd351ae';
+            var word = ['a','3','3','o','4','e','17'];
+            cells.add(board, '11', 'f');
+            cells.add(board, '16', 'k');
+            var result = pattern.generate(board, word);
+            assert(result == 'a([^aefko])\\1o([^aefko])e([^aefko])', 'Expected a([^aefko])\\1o([^aefko])e([^aefko]), got ' + result);
             cells.clear();
         });
     });
