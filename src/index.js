@@ -1,9 +1,10 @@
 var app = require('express')(),
     logger = require('./lib/logger'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    pattern = require('./lib/pattern'),
+    cells = require('./lib/cells');
 
-app.use(bodyParser.text({type : 'text/plain', limit: '1024kb'}));
-app.use(bodyParser.json({type : 'application/json', limit: '1024kb'}));
+app.use(bodyParser.json({limit: '1024kb'}));
 
 app.get('/', function (req, res) {
     res.json({
@@ -16,7 +17,8 @@ app.post('/pattern', function(req, res) {
 
     logger.log('info', 'incoming: ' + req.body);
 
-    pattern.generate(req.body, req.get('Content-Type'), function(err, result) {
+    // expect json array in the request body with the chars & numbers to use to generate a pattern
+    pattern.generate(req.body, function(err, result) {
         if (!err){
             logger.log('info', 'Success');
             res.json(result);

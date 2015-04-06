@@ -8,7 +8,7 @@
     "url": "git@github.com:ArtCoeur/codewords-pattern.git"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha ../test"
+    "test": "./node_modules/mocha/bin/mocha test"
   },
   "author": "Tim Rodger tim.rodger@gmail.com",
   "dependencies": {
