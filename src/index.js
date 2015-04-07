@@ -48,7 +48,7 @@ app.get('/', function (req, res) {
     });
 });
 
-app.post('/pattern/:board', function(req, res) {
+app.post('/regexp/:board', function(req, res) {
 
     logger.log('info', 'incoming: ' + req.body);
     // ensure that req.body is an array
