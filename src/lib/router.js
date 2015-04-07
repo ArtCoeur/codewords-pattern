@@ -3,7 +3,7 @@ var cells = require('./cells'),
 
 module.exports.newFact = function(fact) {
     if (fact.name == 'cell.updated') {
-        logger.info('pattern: ' + body);
+        logger.info('pattern: ' + JSON.stringify(body));
         cells.add(fact.board, fact.data.body.number, fact.data.body.letter);
     }
 };
