@@ -2,8 +2,7 @@ var app = require('express')(),
     logger = require('./lib/logger'),
     bodyParser = require('body-parser'),
     pattern = require('./lib/pattern'),
-    cells = require('./lib/cells'),
-    router = require('./lib/fact_router'),
+    router = require('./lib/router'),
     rabbitmq = require('rabbit.js');
 
 // wait until rabbitmq can accept connections, somehow
@@ -25,7 +24,7 @@ function doConnect(){
 
                 // deal with facts as they come in
                 sub.on('data', function (body) {
-                    router.handleFact(body);
+                    router.newFact(JSON.parse(body));
                 });
             });
         });
