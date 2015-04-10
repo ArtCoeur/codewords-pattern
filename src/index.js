@@ -50,16 +50,16 @@ app.get('/', function (req, res) {
 
 app.post('/regexp/:board', function(req, res) {
 
-    logger.log('info', 'incoming: ' + req.body);
+    logger.info('incoming: ' + req.body);
     // ensure that req.body is an array
 
     // expect json array in the request body with the chars & numbers to use to generate a pattern
     pattern.generate(req.params['board'], req.body, function(err, result) {
         if (!err){
-            logger.log('info', 'Success');
+            logger.info('Success');
             res.json(result);
         } else {
-            logger.log('error', err);
+            logger.error(err);
             res.status(400).json(result);
         }
     });
@@ -69,4 +69,4 @@ var PORT = process.env.PORT || 80;
 
 app.listen(PORT);
 
-logger.log('info', 'Running codewords pattern service on http://localhost:' + PORT);
+logger.info('Running codewords pattern service on http://localhost:' + PORT);
