@@ -24,6 +24,7 @@ function doConnect(){
 
                 // deal with facts as they come in
                 sub.on('data', function (body) {
+                    logger.info('pattern: ' + body);
                     router.newFact(JSON.parse(body));
                 });
             });
