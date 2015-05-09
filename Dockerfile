@@ -1,4 +1,5 @@
 FROM ubuntu:latest
+
 MAINTAINER Tim Rodger
 
 # Install dependencies
@@ -9,10 +10,12 @@ RUN apt-get update -qq && \
 
 EXPOSE 80
 
-CMD ["nodejs", "/home/app/index.js"]
+CMD ["/home/app/run.sh"]
 
 # Move files into place
 COPY src/ /home/app/
+
+RUN sudo ln -s "$(which nodejs)" /usr/bin/node
 
 # Install dependencies
 WORKDIR /home/app

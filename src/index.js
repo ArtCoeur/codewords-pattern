@@ -5,39 +5,28 @@ var app = require('express')(),
     router = require('./lib/router'),
     rabbitmq = require('rabbit.js');
 
-// wait until rabbitmq can accept connections, somehow
-function doConnect(){
+logger.info('running');
 
-    try {
-        var context = rabbitmq.createContext(
-            'amqp://' + process.env.RABBITMQ_PORT_5672_TCP_ADDR + ':' + process.env.RABBITMQ_PORT_5672_TCP_PORT
-        );
+var context = rabbitmq.createContext(
+    'amqp://' + process.env.RABBITMQ_PORT_5672_TCP_ADDR + ':' + process.env.RABBITMQ_PORT_5672_TCP_PORT
+);
 
-        context.on('ready', function() {
+context.on('ready', function() {
 
-            logger.info('pattern: connected');
+    logger.info('connected');
 
-            // subscribe to events queues
-            var sub = context.socket('SUB');
+    // subscribe to events queues
+    var sub = context.socket('SUB');
 
-            sub.connect('events', function () {
+    sub.connect('events', function() {
 
-                // deal with facts as they come in
-                sub.on('data', function (body) {
-                    logger.info('pattern: ' + body);
-                    router.newFact(JSON.parse(body));
-                });
-            });
+        // deal with facts as they come in
+        sub.on('data', function(body) {
+            logger.info('pattern: ' + body);
+            router.newFact(JSON.parse(body));
         });
-
-    } catch (err){
-        logger.error("caught error trying to connect to rabbitmq" + err);
-        setTimeout(doConnect, 2000);
-    }
-}
-
-// hack to wait till rabbitmq is up
-setTimeout(doConnect, 12000);
+    });
+});
 
 app.use(bodyParser.json({limit: '1024kb'}));
 
@@ -69,4 +58,4 @@ var PORT = process.env.PORT || 80;
 
 app.listen(PORT);
 
-logger.info('Running codewords pattern service on http://localhost:' + PORT);
+logger.info('Running http://localhost:' + PORT);
