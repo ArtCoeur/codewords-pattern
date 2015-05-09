@@ -13,6 +13,11 @@ var context = rabbitmq.createContext(
 
 context.on('ready', function() {
 
+    var PORT = process.env.PORT || 80;
+
+    // start listening once a connection to rabbitmq has begun
+    app.listen(PORT);
+
     logger.info('connected');
 
     // subscribe to events queues
@@ -45,7 +50,6 @@ app.post('/regexp/:board', function(req, res) {
     // expect json array in the request body with the chars & numbers to use to generate a pattern
     pattern.generate(req.params['board'], req.body, function(err, result) {
         if (!err){
-            logger.info('Success');
             res.json(result);
         } else {
             logger.error(err);
@@ -53,9 +57,3 @@ app.post('/regexp/:board', function(req, res) {
         }
     });
 });
-
-var PORT = process.env.PORT || 80;
-
-app.listen(PORT);
-
-logger.info('Running http://localhost:' + PORT);
