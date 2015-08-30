@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# install docker first
+
+apt-get update
+
+apt-get install docker.io
 
 owner=timrodger
 
