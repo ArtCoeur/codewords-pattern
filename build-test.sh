@@ -2,9 +2,9 @@
 
 # install docker first
 
-apt-get update
+sudo apt-get update
 
-apt-get install docker.io
+sudo apt-get install docker.io
 
 owner=timrodger
 
