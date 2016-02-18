@@ -15,12 +15,10 @@
             "mime-types": {
               "version": "2.0.14",
               "from": "mime-types@2.0.14",
-              "resolved": "https://registry.npmjs.org/mime-types/-/mime-types-2.0.14.tgz",
               "dependencies": {
                 "mime-db": {
                   "version": "1.12.0",
-                  "from": "mime-db@1.12.0",
-                  "resolved": "https://registry.npmjs.org/mime-db/-/mime-db-1.12.0.tgz"
+                  "from": "mime-db@1.12.0"
                 }
               }
             },
@@ -84,8 +82,7 @@
         },
         "methods": {
           "version": "1.1.1",
-          "from": "methods@1.1.1",
-          "resolved": "https://registry.npmjs.org/methods/-/methods-1.1.1.tgz"
+          "from": "methods@1.1.1"
         },
         "on-finished": {
           "version": "2.2.1",
@@ -105,7 +102,8 @@
         },
         "path-to-regexp": {
           "version": "0.1.3",
-          "from": "path-to-regexp@0.1.3"
+          "from": "path-to-regexp@0.1.3",
+          "resolved": "https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-0.1.3.tgz"
         },
         "proxy-addr": {
           "version": "1.0.10",
@@ -135,7 +133,6 @@
         "send": {
           "version": "0.10.1",
           "from": "send@0.10.1",
-          "resolved": "https://registry.npmjs.org/send/-/send-0.10.1.tgz",
           "dependencies": {
             "destroy": {
               "version": "1.0.3",
@@ -143,8 +140,7 @@
             },
             "mime": {
               "version": "1.2.11",
-              "from": "mime@1.2.11",
-              "resolved": "https://registry.npmjs.org/mime/-/mime-1.2.11.tgz"
+              "from": "mime@1.2.11"
             },
             "ms": {
               "version": "0.6.2",
@@ -176,12 +172,10 @@
             "mime-types": {
               "version": "2.0.14",
               "from": "mime-types@2.0.14",
-              "resolved": "https://registry.npmjs.org/mime-types/-/mime-types-2.0.14.tgz",
               "dependencies": {
                 "mime-db": {
                   "version": "1.12.0",
-                  "from": "mime-db@1.12.0",
-                  "resolved": "https://registry.npmjs.org/mime-db/-/mime-db-1.12.0.tgz"
+                  "from": "mime-db@1.12.0"
                 }
               }
             }
@@ -213,8 +207,7 @@
       "dependencies": {
         "bytes": {
           "version": "1.0.0",
-          "from": "bytes@1.0.0",
-          "resolved": "https://registry.npmjs.org/bytes/-/bytes-1.0.0.tgz"
+          "from": "bytes@1.0.0"
         },
         "depd": {
           "version": "1.0.1",
@@ -223,7 +216,8 @@
         },
         "iconv-lite": {
           "version": "0.4.5",
-          "from": "iconv-lite@0.4.5"
+          "from": "iconv-lite@0.4.5",
+          "resolved": "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.5.tgz"
         },
         "media-typer": {
           "version": "0.3.0",
@@ -256,12 +250,10 @@
             "mime-types": {
               "version": "2.0.14",
               "from": "mime-types@2.0.14",
-              "resolved": "https://registry.npmjs.org/mime-types/-/mime-types-2.0.14.tgz",
               "dependencies": {
                 "mime-db": {
                   "version": "1.12.0",
-                  "from": "mime-db@1.12.0",
-                  "resolved": "https://registry.npmjs.org/mime-db/-/mime-db-1.12.0.tgz"
+                  "from": "mime-db@1.12.0"
                 }
               }
             }
@@ -326,6 +318,7 @@
     "winston": {
       "version": "0.8.3",
       "from": "winston@0.8.3",
+      "resolved": "https://registry.npmjs.org/winston/-/winston-0.8.3.tgz",
       "dependencies": {
         "async": {
           "version": "0.2.10",
@@ -361,6 +354,7 @@
     "forever": {
       "version": "0.14.2",
       "from": "forever@0.14.2",
+      "resolved": "https://registry.npmjs.org/forever/-/forever-0.14.2.tgz",
       "dependencies": {
         "colors": {
           "version": "0.6.2",
@@ -405,6 +399,7 @@
                 "winston": {
                   "version": "0.8.0",
                   "from": "winston@0.8.0",
+                  "resolved": "https://registry.npmjs.org/winston/-/winston-0.8.0.tgz",
                   "dependencies": {
                     "async": {
                       "version": "0.2.10",
@@ -501,6 +496,7 @@
                 "winston": {
                   "version": "0.8.0",
                   "from": "winston@0.8.0",
+                  "resolved": "https://registry.npmjs.org/winston/-/winston-0.8.0.tgz",
                   "dependencies": {
                     "async": {
                       "version": "0.2.10",
@@ -537,7 +533,7 @@
                 },
                 "sigmund": {
                   "version": "1.0.1",
-                  "from": "sigmund@1.0.1"
+                  "from": "sigmund@~1.0.0"
                 }
               }
             },
@@ -670,6 +666,7 @@
             "rimraf": {
               "version": "2.5.2",
               "from": "rimraf@2.5.2",
+              "resolved": "https://registry.npmjs.org/rimraf/-/rimraf-2.5.2.tgz",
               "dependencies": {
                 "glob": {
                   "version": "7.0.0",
