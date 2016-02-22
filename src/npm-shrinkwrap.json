@@ -261,7 +261,8 @@
     },
     "underscore": {
       "version": "1.7.0",
-      "from": "underscore@1.7.0"
+      "from": "underscore@1.7.0",
+      "resolved": "https://registry.npmjs.org/underscore/-/underscore-1.7.0.tgz"
     },
     "rabbit.js": {
       "version": "0.4.4",
@@ -319,7 +320,8 @@
       "dependencies": {
         "async": {
           "version": "0.2.10",
-          "from": "async@0.2.10"
+          "from": "async@0.2.10",
+          "resolved": "https://registry.npmjs.org/async/-/async-0.2.10.tgz"
         },
         "colors": {
           "version": "0.6.2",
@@ -350,7 +352,6 @@
     "forever": {
       "version": "0.14.2",
       "from": "forever@0.14.2",
-      "resolved": "https://registry.npmjs.org/forever/-/forever-0.14.2.tgz",
       "dependencies": {
         "colors": {
           "version": "0.6.2",
@@ -398,7 +399,8 @@
                   "dependencies": {
                     "async": {
                       "version": "0.2.10",
-                      "from": "async@0.2.10"
+                      "from": "async@0.2.10",
+                      "resolved": "https://registry.npmjs.org/async/-/async-0.2.10.tgz"
                     },
                     "cycle": {
                       "version": "1.0.3",
@@ -493,7 +495,8 @@
                   "dependencies": {
                     "async": {
                       "version": "0.2.10",
-                      "from": "async@0.2.10"
+                      "from": "async@0.2.10",
+                      "resolved": "https://registry.npmjs.org/async/-/async-0.2.10.tgz"
                     },
                     "cycle": {
                       "version": "1.0.3",
@@ -521,11 +524,11 @@
               "dependencies": {
                 "lru-cache": {
                   "version": "2.7.3",
-                  "from": "lru-cache@2"
+                  "from": "lru-cache@2.7.3"
                 },
                 "sigmund": {
                   "version": "1.0.1",
-                  "from": "sigmund@~1.0.0"
+                  "from": "sigmund@1.0.1"
                 }
               }
             },
@@ -629,7 +632,8 @@
           "dependencies": {
             "async": {
               "version": "0.2.10",
-              "from": "async@0.2.10"
+              "from": "async@0.2.10",
+              "resolved": "https://registry.npmjs.org/async/-/async-0.2.10.tgz"
             },
             "deep-equal": {
               "version": "1.0.1",
