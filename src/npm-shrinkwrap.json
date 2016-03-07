@@ -315,7 +315,7 @@
     },
     "winston": {
       "version": "0.8.3",
-      "from": "winston@0.8.3",
+      "from": "https://registry.npmjs.org/winston/-/winston-0.8.3.tgz",
       "resolved": "https://registry.npmjs.org/winston/-/winston-0.8.3.tgz",
       "dependencies": {
         "async": {
@@ -350,7 +350,7 @@
     },
     "forever": {
       "version": "0.14.2",
-      "from": "forever@0.14.2",
+      "from": "https://registry.npmjs.org/forever/-/forever-0.14.2.tgz",
       "resolved": "https://registry.npmjs.org/forever/-/forever-0.14.2.tgz",
       "dependencies": {
         "colors": {
@@ -469,6 +469,7 @@
         "forever-monitor": {
           "version": "1.5.2",
           "from": "forever-monitor@1.5.2",
+          "resolved": "https://registry.npmjs.org/forever-monitor/-/forever-monitor-1.5.2.tgz",
           "dependencies": {
             "broadway": {
               "version": "0.3.6",
@@ -657,6 +658,7 @@
             "rimraf": {
               "version": "2.5.2",
               "from": "rimraf@2.5.2",
+              "resolved": "https://registry.npmjs.org/rimraf/-/rimraf-2.5.2.tgz",
               "dependencies": {
                 "glob": {
                   "version": "7.0.0",
